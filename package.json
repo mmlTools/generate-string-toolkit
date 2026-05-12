@@ -1,0 +1,348 @@
+{
+  "name": "generate-string-toolkit",
+  "displayName": "Generate String Toolkit",
+  "description": "A fast context-menu toolkit for generating GUIDs, UUIDs, random hashes, secure tokens, passwords, slugs, timestamps, and custom random strings directly inside VS Code.",
+  "version": "1.0.0",
+  "publisher": "MMLTECH",
+  "homepage": "https://streamrsc.com",
+  "pricing": "Free",
+  "sponsor": {
+    "url": "https://paypal.me/mmltools"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mmlTools/generate-string-toolkit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mmlTools/generate-string-toolkit/issues"
+  },
+  "icon": "media/icon.png",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other",
+    "Snippets",
+    "Formatters"
+  ],
+  "galleryBanner": {
+    "color": "#111827",
+    "theme": "dark"
+  },
+  "qna": "marketplace",
+  "keywords": [
+    "guid",
+    "uuid",
+    "hash",
+    "random string",
+    "token",
+    "password",
+    "md5",
+    "sha256",
+    "developer tools",
+    "generator"
+  ],
+  "activationEvents": [
+    "onCommand:generateString.guid",
+    "onCommand:generateString.uuidUppercase",
+    "onCommand:generateString.uuidNoDashes",
+    "onCommand:generateString.randomHex32",
+    "onCommand:generateString.randomHex64",
+    "onCommand:generateString.randomBase64",
+    "onCommand:generateString.randomBase64Url",
+    "onCommand:generateString.randomAlphaNumeric",
+    "onCommand:generateString.randomPassword",
+    "onCommand:generateString.nanoId",
+    "onCommand:generateString.md5",
+    "onCommand:generateString.sha1",
+    "onCommand:generateString.sha256",
+    "onCommand:generateString.sha384",
+    "onCommand:generateString.sha512",
+    "onCommand:generateString.slug",
+    "onCommand:generateString.timestampUnix",
+    "onCommand:generateString.timestampIso",
+    "onCommand:generateString.custom"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "generateString.guid",
+        "title": "GUID / UUID v4",
+        "category": "Generate String"
+      },
+      {
+        "command": "generateString.uuidUppercase",
+        "title": "UUID v4 Uppercase",
+        "category": "Generate String"
+      },
+      {
+        "command": "generateString.uuidNoDashes",
+        "title": "UUID v4 Without Dashes",
+        "category": "Generate String"
+      },
+      {
+        "command": "generateString.randomHex32",
+        "title": "Random Hex 32 Characters",
+        "category": "Generate String"
+      },
+      {
+        "command": "generateString.randomHex64",
+        "title": "Random Hex 64 Characters",
+        "category": "Generate String"
+      },
+      {
+        "command": "generateString.randomBase64",
+        "title": "Random Base64 Token",
+        "category": "Generate String"
+      },
+      {
+        "command": "generateString.randomBase64Url",
+        "title": "Random Base64URL Token",
+        "category": "Generate String"
+      },
+      {
+        "command": "generateString.randomAlphaNumeric",
+        "title": "Random Alphanumeric String",
+        "category": "Generate String"
+      },
+      {
+        "command": "generateString.randomPassword",
+        "title": "Secure Password",
+        "category": "Generate String"
+      },
+      {
+        "command": "generateString.nanoId",
+        "title": "Nano ID Style String",
+        "category": "Generate String"
+      },
+      {
+        "command": "generateString.md5",
+        "title": "MD5 Hash of Random Seed",
+        "category": "Generate String"
+      },
+      {
+        "command": "generateString.sha1",
+        "title": "SHA-1 Hash of Random Seed",
+        "category": "Generate String"
+      },
+      {
+        "command": "generateString.sha256",
+        "title": "SHA-256 Hash of Random Seed",
+        "category": "Generate String"
+      },
+      {
+        "command": "generateString.sha384",
+        "title": "SHA-384 Hash of Random Seed",
+        "category": "Generate String"
+      },
+      {
+        "command": "generateString.sha512",
+        "title": "SHA-512 Hash of Random Seed",
+        "category": "Generate String"
+      },
+      {
+        "command": "generateString.slug",
+        "title": "Random URL Slug",
+        "category": "Generate String"
+      },
+      {
+        "command": "generateString.timestampUnix",
+        "title": "Unix Timestamp",
+        "category": "Generate String"
+      },
+      {
+        "command": "generateString.timestampIso",
+        "title": "ISO 8601 Timestamp",
+        "category": "Generate String"
+      },
+      {
+        "command": "generateString.custom",
+        "title": "Custom Random String...",
+        "category": "Generate String"
+      }
+    ],
+    "submenus": [
+      {
+        "id": "generateString.menu",
+        "label": "Generate String"
+      },
+      {
+        "id": "generateString.identifiers",
+        "label": "GUID / UUID"
+      },
+      {
+        "id": "generateString.randoms",
+        "label": "Random Strings"
+      },
+      {
+        "id": "generateString.hashes",
+        "label": "Random Hashes"
+      },
+      {
+        "id": "generateString.utilities",
+        "label": "Utilities"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "submenu": "generateString.menu",
+          "group": "navigation@50"
+        }
+      ],
+      "generateString.menu": [
+        {
+          "submenu": "generateString.identifiers",
+          "group": "1_identifiers@1"
+        },
+        {
+          "submenu": "generateString.randoms",
+          "group": "2_randoms@2"
+        },
+        {
+          "submenu": "generateString.hashes",
+          "group": "3_hashes@3"
+        },
+        {
+          "submenu": "generateString.utilities",
+          "group": "4_utilities@4"
+        },
+        {
+          "command": "generateString.custom",
+          "group": "9_custom@9"
+        }
+      ],
+      "generateString.identifiers": [
+        {
+          "command": "generateString.guid",
+          "group": "1_uuid@1"
+        },
+        {
+          "command": "generateString.uuidUppercase",
+          "group": "1_uuid@2"
+        },
+        {
+          "command": "generateString.uuidNoDashes",
+          "group": "1_uuid@3"
+        }
+      ],
+      "generateString.randoms": [
+        {
+          "command": "generateString.randomAlphaNumeric",
+          "group": "1_strings@1"
+        },
+        {
+          "command": "generateString.nanoId",
+          "group": "1_strings@2"
+        },
+        {
+          "command": "generateString.randomPassword",
+          "group": "1_strings@3"
+        },
+        {
+          "command": "generateString.randomHex32",
+          "group": "2_tokens@1"
+        },
+        {
+          "command": "generateString.randomHex64",
+          "group": "2_tokens@2"
+        },
+        {
+          "command": "generateString.randomBase64",
+          "group": "2_tokens@3"
+        },
+        {
+          "command": "generateString.randomBase64Url",
+          "group": "2_tokens@4"
+        }
+      ],
+      "generateString.hashes": [
+        {
+          "command": "generateString.md5",
+          "group": "1_hashes@1"
+        },
+        {
+          "command": "generateString.sha1",
+          "group": "1_hashes@2"
+        },
+        {
+          "command": "generateString.sha256",
+          "group": "1_hashes@3"
+        },
+        {
+          "command": "generateString.sha384",
+          "group": "1_hashes@4"
+        },
+        {
+          "command": "generateString.sha512",
+          "group": "1_hashes@5"
+        }
+      ],
+      "generateString.utilities": [
+        {
+          "command": "generateString.slug",
+          "group": "1_utility@1"
+        },
+        {
+          "command": "generateString.timestampUnix",
+          "group": "2_time@1"
+        },
+        {
+          "command": "generateString.timestampIso",
+          "group": "2_time@2"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Generate String Toolkit",
+      "properties": {
+        "generateString.defaultLength": {
+          "type": "number",
+          "default": 32,
+          "minimum": 1,
+          "maximum": 4096,
+          "description": "Default length used by random string generators that do not have a fixed length."
+        },
+        "generateString.passwordLength": {
+          "type": "number",
+          "default": 24,
+          "minimum": 8,
+          "maximum": 256,
+          "description": "Default length for secure generated passwords."
+        },
+        "generateString.slugWords": {
+          "type": "number",
+          "default": 4,
+          "minimum": 2,
+          "maximum": 12,
+          "description": "Number of words used when generating a random URL slug."
+        },
+        "generateString.copyToClipboard": {
+          "type": "boolean",
+          "default": false,
+          "description": "Copy generated values to the clipboard after inserting them."
+        },
+        "generateString.showSuccessMessage": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show a short confirmation message after generating and inserting a value."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package",
+    "publish": "vsce publish"
+  },
+  "devDependencies": {
+    "@types/node": "^18.19.130",
+    "@types/vscode": "~1.90.0",
+    "@vscode/vsce": "^3.9.1",
+    "typescript": "^5.9.3"
+  }
+}
